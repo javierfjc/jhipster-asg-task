@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Empleado.
+    -->
+    <changeSet id="20190312225536-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tarea_id"
+                                 baseTableName="empleado"
+                                 constraintName="fk_empleado_tarea_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tarea"/>
+
+        <addForeignKeyConstraint baseColumnNames="tarea_id"
+                                 baseTableName="empleado"
+                                 constraintName="fk_empleado_tarea_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tarea"/>
+
+        <addForeignKeyConstraint baseColumnNames="tarea_id"
+                                 baseTableName="empleado"
+                                 constraintName="fk_empleado_tarea_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tarea"/>
+
+        <addForeignKeyConstraint baseColumnNames="departamento_id"
+                                 baseTableName="empleado"
+                                 constraintName="fk_empleado_departamento_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="departamento"/>
+
+        <addForeignKeyConstraint baseColumnNames="jefe_id"
+                                 baseTableName="empleado"
+                                 constraintName="fk_empleado_jefe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="empleado"/>
+
+    </changeSet>
+</databaseChangeLog>

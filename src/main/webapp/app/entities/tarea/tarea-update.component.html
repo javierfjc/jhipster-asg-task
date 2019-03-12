@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-tarea-heading" jhiTranslate="jhipsterTaskApp.tarea.home.createOrEditLabel">Create or edit a Tarea</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!tarea.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="tarea.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                        [(ngModel)]="tarea.descripcion" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.estado" for="field_estado">Estado</label>
+                    <select class="form-control" name="estado" [(ngModel)]="tarea.estado" id="field_estado" >
+                        <option value="ASIGNADO">{{'jhipsterTaskApp.TareasEstado.ASIGNADO' | translate}}</option>
+                        <option value="INICIADO">{{'jhipsterTaskApp.TareasEstado.INICIADO' | translate}}</option>
+                        <option value="PENDIENTE">{{'jhipsterTaskApp.TareasEstado.PENDIENTE' | translate}}</option>
+                        <option value="APLAZADO">{{'jhipsterTaskApp.TareasEstado.APLAZADO' | translate}}</option>
+                        <option value="FINALIZADO">{{'jhipsterTaskApp.TareasEstado.FINALIZADO' | translate}}</option>
+                        <option value="APROBADO">{{'jhipsterTaskApp.TareasEstado.APROBADO' | translate}}</option>
+                        <option value="INSTALADO">{{'jhipsterTaskApp.TareasEstado.INSTALADO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.fechaCreado" for="field_fechaCreado">Fecha Creado</label>
+                    <div class="d-flex">
+                        <input id="field_fechaCreado" type="datetime-local" class="form-control" name="fechaCreado" [(ngModel)]="fechaCreado" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.fechaPrevistoInicio" for="field_fechaPrevistoInicio">Fecha Previsto Inicio</label>
+                    <div class="d-flex">
+                        <input id="field_fechaPrevistoInicio" type="datetime-local" class="form-control" name="fechaPrevistoInicio" [(ngModel)]="fechaPrevistoInicio" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.fechaInicio" for="field_fechaInicio">Fecha Inicio</label>
+                    <div class="d-flex">
+                        <input id="field_fechaInicio" type="datetime-local" class="form-control" name="fechaInicio" [(ngModel)]="fechaInicio" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.fechaFinal" for="field_fechaFinal">Fecha Final</label>
+                    <div class="d-flex">
+                        <input id="field_fechaFinal" type="datetime-local" class="form-control" name="fechaFinal" [(ngModel)]="fechaFinal" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.horasPrevisto" for="field_horasPrevisto">Horas Previsto</label>
+                    <input type="number" class="form-control" name="horasPrevisto" id="field_horasPrevisto"
+                        [(ngModel)]="tarea.horasPrevisto" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.proyecto" for="field_proyecto">Proyecto</label>
+                    <select class="form-control" id="field_proyecto" name="proyecto" [(ngModel)]="tarea.proyectoId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="proyectoOption.id" *ngFor="let proyectoOption of proyectos; trackBy: trackProyectoById">{{proyectoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.contacto" for="field_contacto">Contacto</label>
+                    <select class="form-control" id="field_contacto" name="contacto" [(ngModel)]="tarea.contactoId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contactoOption.id" *ngFor="let contactoOption of contactos; trackBy: trackContactoById">{{contactoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.tarea" for="field_tarea">Tarea</label>
+                    <select class="form-control" id="field_tarea" name="tarea" [(ngModel)]="tarea.tareaId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tareaOption.id" *ngFor="let tareaOption of tareas; trackBy: trackTareaById">{{tareaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.tarea" for="field_tarea">Tarea</label>
+                    <select class="form-control" id="field_tarea" name="tarea" [(ngModel)]="tarea.tareaId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tareaOption.id" *ngFor="let tareaOption of tareas; trackBy: trackTareaById">{{tareaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

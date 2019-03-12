@@ -1,0 +1,30 @@
+{
+    "name": "Departamento",
+    "fields": [
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "empleado",
+            "otherEntityRelationshipName": "departamento",
+            "javadoc": "A relationship",
+            "relationshipName": "empleado"
+        }
+    ],
+    "changelogDate": "20190312225534",
+    "entityTableName": "departamento",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

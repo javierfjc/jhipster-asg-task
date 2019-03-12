@@ -1,0 +1,26 @@
+{
+    "name": "Proyecto",
+    "fields": [
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tarea",
+            "otherEntityRelationshipName": "proyecto",
+            "relationshipName": "tarea"
+        }
+    ],
+    "changelogDate": "20190312225530",
+    "entityTableName": "proyecto",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

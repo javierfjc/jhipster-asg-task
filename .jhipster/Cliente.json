@@ -1,0 +1,26 @@
+{
+    "name": "Cliente",
+    "fields": [
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "contacto",
+            "otherEntityRelationshipName": "cliente",
+            "relationshipName": "contacto"
+        }
+    ],
+    "changelogDate": "20190312225531",
+    "entityTableName": "cliente",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
