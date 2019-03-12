@@ -1,0 +1,92 @@
+enum TareasEstado {
+    ASIGNADO, INICIADO, PENDIENTE, APLAZADO, FINALIZADO, APROBADO, INSTALADO
+  }
+  
+entity Proyecto {
+	descripcion String
+}
+
+entity Cliente {
+	descripcion String
+}
+
+entity Contacto {
+	nombre String,
+	email String,
+	telefono String,
+    perfil String
+}
+
+entity Tarea {
+	descripcion String,
+	estado TareasEstado,
+    fechaCreado Instant,
+    fechaPrevistoInicio Instant,
+    fechaInicio Instant,
+    fechaFinal Instant,
+    horasPrevisto Integer,
+}
+
+entity Departamento {
+	descripcion String required
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Perfil {
+	titulo String,
+	descripcion String,
+    nivel Integer,
+}
+
+/**
+ * The Employee entity.
+ */
+entity Empleado {
+	/**
+	* The firstname attribute.
+	*/
+	nombre String,
+	email String,
+	telefono String,
+	antiguedad Instant,
+	salario Long,
+	comision Long
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Cliente{contacto} to Contacto,
+	Proyecto{tarea} to Tarea,
+    Contacto{tarea} to Tarea,
+	Empleado{perfil} to Perfil,
+	/**
+	* A relationship
+	*/
+	Departamento{empleado} to Empleado,
+    Tarea{crea} to Empleado,
+    Tarea{asignado} to Empleado,
+    Tarea{valida} to Empleado,
+    Tarea{maestra} to Tarea,
+    Tarea{espera} to Tarea
+}
+
+relationship ManyToOne {
+	Empleado{jefe} to Empleado
+}
+
+// Set pagination options
+paginate Empleado with infinite-scroll
+paginate Tarea with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Empleado, Tarea
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
