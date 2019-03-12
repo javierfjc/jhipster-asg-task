@@ -1,0 +1,79 @@
+{
+    "name": "Empleado",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "antiguedad",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "salario",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "comision",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "tarea",
+            "otherEntityName": "tarea",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "tarea",
+            "otherEntityName": "tarea",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "tarea",
+            "otherEntityName": "tarea",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "departamento",
+            "otherEntityName": "departamento",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "perfil",
+            "otherEntityRelationshipName": "empleado",
+            "relationshipName": "perfil"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "empleado",
+            "otherEntityRelationshipName": "empleado",
+            "relationshipName": "jefe",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190312225536",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "empleado",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

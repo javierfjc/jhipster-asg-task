@@ -1,0 +1,98 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterTaskApp.tarea.home.title">Tareas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tarea" [routerLink]="['/tarea/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterTaskApp.tarea.home.createLabel">
+            Create new Tarea
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="tareas">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descripcion"><span jhiTranslate="jhipsterTaskApp.tarea.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estado"><span jhiTranslate="jhipsterTaskApp.tarea.estado">Estado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaCreado"><span jhiTranslate="jhipsterTaskApp.tarea.fechaCreado">Fecha Creado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaPrevistoInicio"><span jhiTranslate="jhipsterTaskApp.tarea.fechaPrevistoInicio">Fecha Previsto Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaInicio"><span jhiTranslate="jhipsterTaskApp.tarea.fechaInicio">Fecha Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaFinal"><span jhiTranslate="jhipsterTaskApp.tarea.fechaFinal">Fecha Final</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="horasPrevisto"><span jhiTranslate="jhipsterTaskApp.tarea.horasPrevisto">Horas Previsto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="proyectoId"><span jhiTranslate="jhipsterTaskApp.tarea.proyecto">Proyecto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactoId"><span jhiTranslate="jhipsterTaskApp.tarea.contacto">Contacto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tareaId"><span jhiTranslate="jhipsterTaskApp.tarea.tarea">Tarea</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tareaId"><span jhiTranslate="jhipsterTaskApp.tarea.tarea">Tarea</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tarea of tareas ;trackBy: trackId">
+                <td><a [routerLink]="['/tarea', tarea.id, 'view' ]">{{tarea.id}}</a></td>
+                <td>{{tarea.descripcion}}</td>
+                <td jhiTranslate="{{'jhipsterTaskApp.TareasEstado.' + tarea.estado}}">{{tarea.estado}}</td>
+                <td>{{tarea.fechaCreado | date:'medium'}}</td>
+                <td>{{tarea.fechaPrevistoInicio | date:'medium'}}</td>
+                <td>{{tarea.fechaInicio | date:'medium'}}</td>
+                <td>{{tarea.fechaFinal | date:'medium'}}</td>
+                <td>{{tarea.horasPrevisto}}</td>
+                <td>
+                    <div *ngIf="tarea.proyectoId">
+                        <a [routerLink]="['../proyecto', tarea.proyectoId , 'view' ]" >{{tarea.proyectoId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tarea.contactoId">
+                        <a [routerLink]="['../contacto', tarea.contactoId , 'view' ]" >{{tarea.contactoId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tarea.tareaId">
+                        <a [routerLink]="['../tarea', tarea.tareaId , 'view' ]" >{{tarea.tareaId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tarea.tareaId">
+                        <a [routerLink]="['../tarea', tarea.tareaId , 'view' ]" >{{tarea.tareaId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/tarea', tarea.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tarea', tarea.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'tarea', { outlets: { popup: tarea.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="tareas && tareas.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

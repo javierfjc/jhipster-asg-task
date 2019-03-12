@@ -1,0 +1,35 @@
+{
+    "name": "Perfil",
+    "fields": [
+        {
+            "fieldName": "titulo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nivel",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "empleado",
+            "otherEntityName": "empleado",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190312225535",
+    "javadoc": "Task entity.\n@author The JHipster team.",
+    "entityTableName": "perfil",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

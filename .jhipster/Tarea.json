@@ -1,0 +1,99 @@
+{
+    "name": "Tarea",
+    "fields": [
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "TareasEstado",
+            "fieldValues": "ASIGNADO,INICIADO,PENDIENTE,APLAZADO,FINALIZADO,APROBADO,INSTALADO"
+        },
+        {
+            "fieldName": "fechaCreado",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "fechaPrevistoInicio",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "fechaInicio",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "fechaFinal",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "horasPrevisto",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "proyecto",
+            "otherEntityName": "proyecto",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "contacto",
+            "otherEntityName": "contacto",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "empleado",
+            "otherEntityRelationshipName": "tarea",
+            "relationshipName": "crea"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "empleado",
+            "otherEntityRelationshipName": "tarea",
+            "relationshipName": "asignado"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "empleado",
+            "otherEntityRelationshipName": "tarea",
+            "relationshipName": "valida"
+        },
+        {
+            "relationshipName": "tarea",
+            "otherEntityName": "tarea",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tarea",
+            "otherEntityRelationshipName": "tarea",
+            "relationshipName": "maestra"
+        },
+        {
+            "relationshipName": "tarea",
+            "otherEntityName": "tarea",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tarea",
+            "otherEntityRelationshipName": "tarea",
+            "relationshipName": "espera"
+        }
+    ],
+    "changelogDate": "20190312225533",
+    "entityTableName": "tarea",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="empleado">
+            <h2><span jhiTranslate="jhipsterTaskApp.empleado.detail.title">Empleado</span> {{empleado.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterTaskApp.empleado.nombre" [ngbTooltip]="'jhipsterTaskApp.empleado.help.nombre' | translate">Nombre</span></dt>
+                <dd>
+                    <span>{{empleado.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTaskApp.empleado.email">Email</span></dt>
+                <dd>
+                    <span>{{empleado.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTaskApp.empleado.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{empleado.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTaskApp.empleado.antiguedad">Antiguedad</span></dt>
+                <dd>
+                    <span>{{empleado.antiguedad}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTaskApp.empleado.salario">Salario</span></dt>
+                <dd>
+                    <span>{{empleado.salario}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTaskApp.empleado.comision">Comision</span></dt>
+                <dd>
+                    <span>{{empleado.comision}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTaskApp.empleado.tarea">Tarea</span></dt>
+                <dd>
+                    <div *ngIf="empleado.tareaId">
+                        <a [routerLink]="['/tarea', empleado.tareaId, 'view']">{{empleado.tareaId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTaskApp.empleado.tarea">Tarea</span></dt>
+                <dd>
+                    <div *ngIf="empleado.tareaId">
+                        <a [routerLink]="['/tarea', empleado.tareaId, 'view']">{{empleado.tareaId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTaskApp.empleado.tarea">Tarea</span></dt>
+                <dd>
+                    <div *ngIf="empleado.tareaId">
+                        <a [routerLink]="['/tarea', empleado.tareaId, 'view']">{{empleado.tareaId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTaskApp.empleado.departamento">Departamento</span></dt>
+                <dd>
+                    <div *ngIf="empleado.departamentoId">
+                        <a [routerLink]="['/departamento', empleado.departamentoId, 'view']">{{empleado.departamentoId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterTaskApp.empleado.jefe">Jefe</span></dt>
+                <dd>
+                    <div *ngIf="empleado.jefeId">
+                        <a [routerLink]="['/empleado', empleado.jefeId, 'view']">{{empleado.jefeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empleado', empleado.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

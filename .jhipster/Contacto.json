@@ -1,0 +1,44 @@
+{
+    "name": "Contacto",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "perfil",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "cliente",
+            "otherEntityName": "cliente",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tarea",
+            "otherEntityRelationshipName": "contacto",
+            "relationshipName": "tarea"
+        }
+    ],
+    "changelogDate": "20190312225532",
+    "entityTableName": "contacto",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
