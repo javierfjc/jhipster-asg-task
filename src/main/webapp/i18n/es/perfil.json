@@ -17,8 +17,7 @@
             },
             "titulo": "Titulo",
             "descripcion": "Descripcion",
-            "nivel": "Nivel",
-            "empleado": "Empleado"
+            "nivel": "Nivel"
         }
     }
 }

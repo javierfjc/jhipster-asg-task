@@ -8,12 +8,13 @@ import io.github.jhipster.application.service.mapper.EmpleadoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Service Implementation for managing Empleado.
@@ -50,15 +51,15 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     /**
      * Get all the empleados.
      *
-     * @param pageable the pagination information
      * @return the list of entities
      */
     @Override
     @Transactional(readOnly = true)
-    public Page<EmpleadoDTO> findAll(Pageable pageable) {
+    public List<EmpleadoDTO> findAll() {
         log.debug("Request to get all Empleados");
-        return empleadoRepository.findAll(pageable)
-            .map(empleadoMapper::toDto);
+        return empleadoRepository.findAll().stream()
+            .map(empleadoMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
     }
 
 

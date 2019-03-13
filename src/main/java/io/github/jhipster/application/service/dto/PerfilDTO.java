@@ -18,8 +18,6 @@ public class PerfilDTO implements Serializable {
     private Integer nivel;
 
 
-    private Long empleadoId;
-
     public Long getId() {
         return id;
     }
@@ -52,14 +50,6 @@ public class PerfilDTO implements Serializable {
         this.nivel = nivel;
     }
 
-    public Long getEmpleadoId() {
-        return empleadoId;
-    }
-
-    public void setEmpleadoId(Long empleadoId) {
-        this.empleadoId = empleadoId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -88,7 +78,6 @@ public class PerfilDTO implements Serializable {
             ", titulo='" + getTitulo() + "'" +
             ", descripcion='" + getDescripcion() + "'" +
             ", nivel=" + getNivel() +
-            ", empleado=" + getEmpleadoId() +
             "}";
     }
 }

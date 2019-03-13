@@ -18,20 +18,7 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [
-        {
-            "relationshipName": "cliente",
-            "otherEntityName": "cliente",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "tarea",
-            "otherEntityRelationshipName": "contacto",
-            "relationshipName": "tarea"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190312225532",
     "entityTableName": "contacto",
     "dto": "mapstruct",

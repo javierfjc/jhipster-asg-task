@@ -2,15 +2,10 @@ package io.github.jhipster.application.web.rest;
 import io.github.jhipster.application.service.EmpleadoService;
 import io.github.jhipster.application.web.rest.errors.BadRequestAlertException;
 import io.github.jhipster.application.web.rest.util.HeaderUtil;
-import io.github.jhipster.application.web.rest.util.PaginationUtil;
 import io.github.jhipster.application.service.dto.EmpleadoDTO;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -80,15 +75,12 @@ public class EmpleadoResource {
     /**
      * GET  /empleados : get all the empleados.
      *
-     * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of empleados in body
      */
     @GetMapping("/empleados")
-    public ResponseEntity<List<EmpleadoDTO>> getAllEmpleados(Pageable pageable) {
-        log.debug("REST request to get a page of Empleados");
-        Page<EmpleadoDTO> page = empleadoService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/empleados");
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    public List<EmpleadoDTO> getAllEmpleados() {
+        log.debug("REST request to get all Empleados");
+        return empleadoService.findAll();
     }
 
     /**

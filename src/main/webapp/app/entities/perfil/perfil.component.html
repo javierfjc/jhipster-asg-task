@@ -18,7 +18,6 @@
             <th><span jhiTranslate="jhipsterTaskApp.perfil.titulo">Titulo</span></th>
             <th><span jhiTranslate="jhipsterTaskApp.perfil.descripcion">Descripcion</span></th>
             <th><span jhiTranslate="jhipsterTaskApp.perfil.nivel">Nivel</span></th>
-            <th><span jhiTranslate="jhipsterTaskApp.perfil.empleado">Empleado</span></th>
             <th></th>
             </tr>
             </thead>
@@ -28,11 +27,6 @@
                 <td>{{perfil.titulo}}</td>
                 <td>{{perfil.descripcion}}</td>
                 <td>{{perfil.nivel}}</td>
-                <td>
-                    <div *ngIf="perfil.empleadoId">
-                        <a [routerLink]="['../empleado', perfil.empleadoId , 'view' ]" >{{perfil.empleadoId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

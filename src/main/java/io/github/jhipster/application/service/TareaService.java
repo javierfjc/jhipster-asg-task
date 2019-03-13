@@ -2,9 +2,7 @@ package io.github.jhipster.application.service;
 
 import io.github.jhipster.application.service.dto.TareaDTO;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -23,10 +21,9 @@ public interface TareaService {
     /**
      * Get all the tareas.
      *
-     * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<TareaDTO> findAll(Pageable pageable);
+    List<TareaDTO> findAll();
 
 
     /**

@@ -2,9 +2,7 @@ package io.github.jhipster.application.service;
 
 import io.github.jhipster.application.service.dto.EmpleadoDTO;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -23,10 +21,9 @@ public interface EmpleadoService {
     /**
      * Get all the empleados.
      *
-     * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<EmpleadoDTO> findAll(Pageable pageable);
+    List<EmpleadoDTO> findAll();
 
 
     /**

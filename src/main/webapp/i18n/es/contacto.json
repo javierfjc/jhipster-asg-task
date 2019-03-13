@@ -18,9 +18,7 @@
             "nombre": "Nombre",
             "email": "Email",
             "telefono": "Telefono",
-            "perfil": "Perfil",
-            "cliente": "Cliente",
-            "tarea": "Tarea"
+            "perfil": "Perfil"
         }
     }
 }

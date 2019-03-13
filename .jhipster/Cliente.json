@@ -6,14 +6,7 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "contacto",
-            "otherEntityRelationshipName": "cliente",
-            "relationshipName": "contacto"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190312225531",
     "entityTableName": "cliente",
     "dto": "mapstruct",

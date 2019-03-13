@@ -13,23 +13,18 @@
     <div class="table-responsive" *ngIf="empleados">
         <table class="table table-striped">
             <thead>
-            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="nombre"><span jhiTranslate="jhipsterTaskApp.empleado.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="email"><span jhiTranslate="jhipsterTaskApp.empleado.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="telefono"><span jhiTranslate="jhipsterTaskApp.empleado.telefono">Telefono</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="antiguedad"><span jhiTranslate="jhipsterTaskApp.empleado.antiguedad">Antiguedad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="salario"><span jhiTranslate="jhipsterTaskApp.empleado.salario">Salario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="comision"><span jhiTranslate="jhipsterTaskApp.empleado.comision">Comision</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tareaId"><span jhiTranslate="jhipsterTaskApp.empleado.tarea">Tarea</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tareaId"><span jhiTranslate="jhipsterTaskApp.empleado.tarea">Tarea</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tareaId"><span jhiTranslate="jhipsterTaskApp.empleado.tarea">Tarea</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="departamentoId"><span jhiTranslate="jhipsterTaskApp.empleado.departamento">Departamento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="jefeId"><span jhiTranslate="jhipsterTaskApp.empleado.jefe">Jefe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="jhipsterTaskApp.empleado.nombre">Nombre</span></th>
+            <th><span jhiTranslate="jhipsterTaskApp.empleado.email">Email</span></th>
+            <th><span jhiTranslate="jhipsterTaskApp.empleado.telefono">Telefono</span></th>
+            <th><span jhiTranslate="jhipsterTaskApp.empleado.antiguedad">Antiguedad</span></th>
+            <th><span jhiTranslate="jhipsterTaskApp.empleado.salario">Salario</span></th>
+            <th><span jhiTranslate="jhipsterTaskApp.empleado.comision">Comision</span></th>
             <th></th>
             </tr>
             </thead>
-            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tbody>
             <tr *ngFor="let empleado of empleados ;trackBy: trackId">
                 <td><a [routerLink]="['/empleado', empleado.id, 'view' ]">{{empleado.id}}</a></td>
                 <td>{{empleado.nombre}}</td>
@@ -38,31 +33,6 @@
                 <td>{{empleado.antiguedad | date:'medium'}}</td>
                 <td>{{empleado.salario}}</td>
                 <td>{{empleado.comision}}</td>
-                <td>
-                    <div *ngIf="empleado.tareaId">
-                        <a [routerLink]="['../tarea', empleado.tareaId , 'view' ]" >{{empleado.tareaId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="empleado.tareaId">
-                        <a [routerLink]="['../tarea', empleado.tareaId , 'view' ]" >{{empleado.tareaId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="empleado.tareaId">
-                        <a [routerLink]="['../tarea', empleado.tareaId , 'view' ]" >{{empleado.tareaId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="empleado.departamentoId">
-                        <a [routerLink]="['../departamento', empleado.departamentoId , 'view' ]" >{{empleado.departamentoId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="empleado.jefeId">
-                        <a [routerLink]="['../empleado', empleado.jefeId , 'view' ]" >{{empleado.jefeId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

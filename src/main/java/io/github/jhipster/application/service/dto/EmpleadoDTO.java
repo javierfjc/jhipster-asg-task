@@ -30,16 +30,6 @@ public class EmpleadoDTO implements Serializable {
     private Long comision;
 
 
-    private Long tareaId;
-
-    private Long tareaId;
-
-    private Long tareaId;
-
-    private Long departamentoId;
-
-    private Long jefeId;
-
     public Long getId() {
         return id;
     }
@@ -96,46 +86,6 @@ public class EmpleadoDTO implements Serializable {
         this.comision = comision;
     }
 
-    public Long getTareaId() {
-        return tareaId;
-    }
-
-    public void setTareaId(Long tareaId) {
-        this.tareaId = tareaId;
-    }
-
-    public Long getTareaId() {
-        return tareaId;
-    }
-
-    public void setTareaId(Long tareaId) {
-        this.tareaId = tareaId;
-    }
-
-    public Long getTareaId() {
-        return tareaId;
-    }
-
-    public void setTareaId(Long tareaId) {
-        this.tareaId = tareaId;
-    }
-
-    public Long getDepartamentoId() {
-        return departamentoId;
-    }
-
-    public void setDepartamentoId(Long departamentoId) {
-        this.departamentoId = departamentoId;
-    }
-
-    public Long getJefeId() {
-        return jefeId;
-    }
-
-    public void setJefeId(Long empleadoId) {
-        this.jefeId = empleadoId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -167,11 +117,6 @@ public class EmpleadoDTO implements Serializable {
             ", antiguedad='" + getAntiguedad() + "'" +
             ", salario=" + getSalario() +
             ", comision=" + getComision() +
-            ", tarea=" + getTareaId() +
-            ", tarea=" + getTareaId() +
-            ", tarea=" + getTareaId() +
-            ", departamento=" + getDepartamentoId() +
-            ", jefe=" + getJefeId() +
             "}";
     }
 }

@@ -1,8 +1,6 @@
 package io.github.jhipster.application.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -10,8 +8,6 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -48,29 +44,6 @@ public class Empleado implements Serializable {
 
     @Column(name = "comision")
     private Long comision;
-
-    @ManyToOne
-    @JsonIgnoreProperties("validas")
-    private Tarea tarea;
-
-    @ManyToOne
-    @JsonIgnoreProperties("validas")
-    private Tarea tarea;
-
-    @ManyToOne
-    @JsonIgnoreProperties("validas")
-    private Tarea tarea;
-
-    @ManyToOne
-    @JsonIgnoreProperties("empleados")
-    private Departamento departamento;
-
-    @OneToMany(mappedBy = "empleado")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Perfil> perfils = new HashSet<>();
-    @ManyToOne
-    @JsonIgnoreProperties("empleados")
-    private Empleado jefe;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -157,96 +130,6 @@ public class Empleado implements Serializable {
 
     public void setComision(Long comision) {
         this.comision = comision;
-    }
-
-    public Tarea getTarea() {
-        return tarea;
-    }
-
-    public Empleado tarea(Tarea tarea) {
-        this.tarea = tarea;
-        return this;
-    }
-
-    public void setTarea(Tarea tarea) {
-        this.tarea = tarea;
-    }
-
-    public Tarea getTarea() {
-        return tarea;
-    }
-
-    public Empleado tarea(Tarea tarea) {
-        this.tarea = tarea;
-        return this;
-    }
-
-    public void setTarea(Tarea tarea) {
-        this.tarea = tarea;
-    }
-
-    public Tarea getTarea() {
-        return tarea;
-    }
-
-    public Empleado tarea(Tarea tarea) {
-        this.tarea = tarea;
-        return this;
-    }
-
-    public void setTarea(Tarea tarea) {
-        this.tarea = tarea;
-    }
-
-    public Departamento getDepartamento() {
-        return departamento;
-    }
-
-    public Empleado departamento(Departamento departamento) {
-        this.departamento = departamento;
-        return this;
-    }
-
-    public void setDepartamento(Departamento departamento) {
-        this.departamento = departamento;
-    }
-
-    public Set<Perfil> getPerfils() {
-        return perfils;
-    }
-
-    public Empleado perfils(Set<Perfil> perfils) {
-        this.perfils = perfils;
-        return this;
-    }
-
-    public Empleado addPerfil(Perfil perfil) {
-        this.perfils.add(perfil);
-        perfil.setEmpleado(this);
-        return this;
-    }
-
-    public Empleado removePerfil(Perfil perfil) {
-        this.perfils.remove(perfil);
-        perfil.setEmpleado(null);
-        return this;
-    }
-
-    public void setPerfils(Set<Perfil> perfils) {
-        this.perfils = perfils;
-    }
-
-    public Empleado getJefe() {
-        return jefe;
-    }
-
-    public Empleado jefe(Empleado empleado) {
-        this.jefe = empleado;
-        return this;
-    }
-
-    public void setJefe(Empleado empleado) {
-        this.jefe = empleado;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

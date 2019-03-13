@@ -1,8 +1,6 @@
 package io.github.jhipster.application.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -10,8 +8,6 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 import io.github.jhipster.application.domain.enumeration.TareasEstado;
@@ -52,37 +48,6 @@ public class Tarea implements Serializable {
     @Column(name = "horas_previsto")
     private Integer horasPrevisto;
 
-    @ManyToOne
-    @JsonIgnoreProperties("tareas")
-    private Proyecto proyecto;
-
-    @ManyToOne
-    @JsonIgnoreProperties("tareas")
-    private Contacto contacto;
-
-    @OneToMany(mappedBy = "tarea")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Empleado> creas = new HashSet<>();
-    @OneToMany(mappedBy = "tarea")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Empleado> asignados = new HashSet<>();
-    @OneToMany(mappedBy = "tarea")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Empleado> validas = new HashSet<>();
-    @ManyToOne
-    @JsonIgnoreProperties("esperas")
-    private Tarea tarea;
-
-    @OneToMany(mappedBy = "tarea")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Tarea> maestras = new HashSet<>();
-    @ManyToOne
-    @JsonIgnoreProperties("esperas")
-    private Tarea tarea;
-
-    @OneToMany(mappedBy = "tarea")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Tarea> esperas = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -181,183 +146,6 @@ public class Tarea implements Serializable {
 
     public void setHorasPrevisto(Integer horasPrevisto) {
         this.horasPrevisto = horasPrevisto;
-    }
-
-    public Proyecto getProyecto() {
-        return proyecto;
-    }
-
-    public Tarea proyecto(Proyecto proyecto) {
-        this.proyecto = proyecto;
-        return this;
-    }
-
-    public void setProyecto(Proyecto proyecto) {
-        this.proyecto = proyecto;
-    }
-
-    public Contacto getContacto() {
-        return contacto;
-    }
-
-    public Tarea contacto(Contacto contacto) {
-        this.contacto = contacto;
-        return this;
-    }
-
-    public void setContacto(Contacto contacto) {
-        this.contacto = contacto;
-    }
-
-    public Set<Empleado> getCreas() {
-        return creas;
-    }
-
-    public Tarea creas(Set<Empleado> empleados) {
-        this.creas = empleados;
-        return this;
-    }
-
-    public Tarea addCrea(Empleado empleado) {
-        this.creas.add(empleado);
-        empleado.setTarea(this);
-        return this;
-    }
-
-    public Tarea removeCrea(Empleado empleado) {
-        this.creas.remove(empleado);
-        empleado.setTarea(null);
-        return this;
-    }
-
-    public void setCreas(Set<Empleado> empleados) {
-        this.creas = empleados;
-    }
-
-    public Set<Empleado> getAsignados() {
-        return asignados;
-    }
-
-    public Tarea asignados(Set<Empleado> empleados) {
-        this.asignados = empleados;
-        return this;
-    }
-
-    public Tarea addAsignado(Empleado empleado) {
-        this.asignados.add(empleado);
-        empleado.setTarea(this);
-        return this;
-    }
-
-    public Tarea removeAsignado(Empleado empleado) {
-        this.asignados.remove(empleado);
-        empleado.setTarea(null);
-        return this;
-    }
-
-    public void setAsignados(Set<Empleado> empleados) {
-        this.asignados = empleados;
-    }
-
-    public Set<Empleado> getValidas() {
-        return validas;
-    }
-
-    public Tarea validas(Set<Empleado> empleados) {
-        this.validas = empleados;
-        return this;
-    }
-
-    public Tarea addValida(Empleado empleado) {
-        this.validas.add(empleado);
-        empleado.setTarea(this);
-        return this;
-    }
-
-    public Tarea removeValida(Empleado empleado) {
-        this.validas.remove(empleado);
-        empleado.setTarea(null);
-        return this;
-    }
-
-    public void setValidas(Set<Empleado> empleados) {
-        this.validas = empleados;
-    }
-
-    public Tarea getTarea() {
-        return tarea;
-    }
-
-    public Tarea tarea(Tarea tarea) {
-        this.tarea = tarea;
-        return this;
-    }
-
-    public void setTarea(Tarea tarea) {
-        this.tarea = tarea;
-    }
-
-    public Set<Tarea> getMaestras() {
-        return maestras;
-    }
-
-    public Tarea maestras(Set<Tarea> tareas) {
-        this.maestras = tareas;
-        return this;
-    }
-
-    public Tarea addMaestra(Tarea tarea) {
-        this.maestras.add(tarea);
-        tarea.setTarea(this);
-        return this;
-    }
-
-    public Tarea removeMaestra(Tarea tarea) {
-        this.maestras.remove(tarea);
-        tarea.setTarea(null);
-        return this;
-    }
-
-    public void setMaestras(Set<Tarea> tareas) {
-        this.maestras = tareas;
-    }
-
-    public Tarea getTarea() {
-        return tarea;
-    }
-
-    public Tarea tarea(Tarea tarea) {
-        this.tarea = tarea;
-        return this;
-    }
-
-    public void setTarea(Tarea tarea) {
-        this.tarea = tarea;
-    }
-
-    public Set<Tarea> getEsperas() {
-        return esperas;
-    }
-
-    public Tarea esperas(Set<Tarea> tareas) {
-        this.esperas = tareas;
-        return this;
-    }
-
-    public Tarea addEspera(Tarea tarea) {
-        this.esperas.add(tarea);
-        tarea.setTarea(this);
-        return this;
-    }
-
-    public Tarea removeEspera(Tarea tarea) {
-        this.esperas.remove(tarea);
-        tarea.setTarea(null);
-        return this;
-    }
-
-    public void setEsperas(Set<Tarea> tareas) {
-        this.esperas = tareas;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

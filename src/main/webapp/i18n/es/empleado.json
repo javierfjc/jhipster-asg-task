@@ -21,12 +21,6 @@
             "antiguedad": "Antiguedad",
             "salario": "Salario",
             "comision": "Comision",
-            "tarea": "Tarea",
-            "tarea": "Tarea",
-            "tarea": "Tarea",
-            "departamento": "Departamento",
-            "perfil": "Perfil",
-            "jefe": "Jefe",
             "help": {
                 "nombre": "The firstname attribute."
             }

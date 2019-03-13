@@ -21,16 +21,7 @@
             "fechaPrevistoInicio": "Fecha Previsto Inicio",
             "fechaInicio": "Fecha Inicio",
             "fechaFinal": "Fecha Final",
-            "horasPrevisto": "Horas Previsto",
-            "proyecto": "Proyecto",
-            "contacto": "Contacto",
-            "crea": "Crea",
-            "asignado": "Asignado",
-            "valida": "Valida",
-            "tarea": "Tarea",
-            "maestra": "Maestra",
-            "tarea": "Tarea",
-            "espera": "Espera"
+            "horasPrevisto": "Horas Previsto"
         }
     }
 }

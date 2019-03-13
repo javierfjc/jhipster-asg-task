@@ -14,14 +14,7 @@
             "fieldType": "Integer"
         }
     ],
-    "relationships": [
-        {
-            "relationshipName": "empleado",
-            "otherEntityName": "empleado",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190312225535",
     "javadoc": "Task entity.\n@author The JHipster team.",
     "entityTableName": "perfil",
