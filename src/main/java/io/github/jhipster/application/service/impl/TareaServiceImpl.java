@@ -8,12 +8,13 @@ import io.github.jhipster.application.service.mapper.TareaMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Service Implementation for managing Tarea.
@@ -50,15 +51,15 @@ public class TareaServiceImpl implements TareaService {
     /**
      * Get all the tareas.
      *
-     * @param pageable the pagination information
      * @return the list of entities
      */
     @Override
     @Transactional(readOnly = true)
-    public Page<TareaDTO> findAll(Pageable pageable) {
+    public List<TareaDTO> findAll() {
         log.debug("Request to get all Tareas");
-        return tareaRepository.findAll(pageable)
-            .map(tareaMapper::toDto);
+        return tareaRepository.findAll().stream()
+            .map(tareaMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
     }
 
 

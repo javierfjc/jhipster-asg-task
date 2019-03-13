@@ -42,41 +42,6 @@
                         [(ngModel)]="empleado.comision" />
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.empleado.tarea" for="field_tarea">Tarea</label>
-                    <select class="form-control" id="field_tarea" name="tarea" [(ngModel)]="empleado.tareaId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="tareaOption.id" *ngFor="let tareaOption of tareas; trackBy: trackTareaById">{{tareaOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.empleado.tarea" for="field_tarea">Tarea</label>
-                    <select class="form-control" id="field_tarea" name="tarea" [(ngModel)]="empleado.tareaId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="tareaOption.id" *ngFor="let tareaOption of tareas; trackBy: trackTareaById">{{tareaOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.empleado.tarea" for="field_tarea">Tarea</label>
-                    <select class="form-control" id="field_tarea" name="tarea" [(ngModel)]="empleado.tareaId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="tareaOption.id" *ngFor="let tareaOption of tareas; trackBy: trackTareaById">{{tareaOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.empleado.departamento" for="field_departamento">Departamento</label>
-                    <select class="form-control" id="field_departamento" name="departamento" [(ngModel)]="empleado.departamentoId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="departamentoOption.id" *ngFor="let departamentoOption of departamentos; trackBy: trackDepartamentoById">{{departamentoOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.empleado.jefe" for="field_jefe">Jefe</label>
-                    <select class="form-control" id="field_jefe" name="jefe" [(ngModel)]="empleado.jefeId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="empleadoOption.id" *ngFor="let empleadoOption of empleados; trackBy: trackEmpleadoById">{{empleadoOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

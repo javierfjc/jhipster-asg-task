@@ -19,7 +19,6 @@
             <th><span jhiTranslate="jhipsterTaskApp.contacto.email">Email</span></th>
             <th><span jhiTranslate="jhipsterTaskApp.contacto.telefono">Telefono</span></th>
             <th><span jhiTranslate="jhipsterTaskApp.contacto.perfil">Perfil</span></th>
-            <th><span jhiTranslate="jhipsterTaskApp.contacto.cliente">Cliente</span></th>
             <th></th>
             </tr>
             </thead>
@@ -30,11 +29,6 @@
                 <td>{{contacto.email}}</td>
                 <td>{{contacto.telefono}}</td>
                 <td>{{contacto.perfil}}</td>
-                <td>
-                    <div *ngIf="contacto.clienteId">
-                        <a [routerLink]="['../cliente', contacto.clienteId , 'view' ]" >{{contacto.clienteId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

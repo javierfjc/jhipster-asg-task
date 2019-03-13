@@ -26,14 +26,6 @@ public class TareaDTO implements Serializable {
     private Integer horasPrevisto;
 
 
-    private Long proyectoId;
-
-    private Long contactoId;
-
-    private Long tareaId;
-
-    private Long tareaId;
-
     public Long getId() {
         return id;
     }
@@ -98,38 +90,6 @@ public class TareaDTO implements Serializable {
         this.horasPrevisto = horasPrevisto;
     }
 
-    public Long getProyectoId() {
-        return proyectoId;
-    }
-
-    public void setProyectoId(Long proyectoId) {
-        this.proyectoId = proyectoId;
-    }
-
-    public Long getContactoId() {
-        return contactoId;
-    }
-
-    public void setContactoId(Long contactoId) {
-        this.contactoId = contactoId;
-    }
-
-    public Long getTareaId() {
-        return tareaId;
-    }
-
-    public void setTareaId(Long tareaId) {
-        this.tareaId = tareaId;
-    }
-
-    public Long getTareaId() {
-        return tareaId;
-    }
-
-    public void setTareaId(Long tareaId) {
-        this.tareaId = tareaId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -162,10 +122,6 @@ public class TareaDTO implements Serializable {
             ", fechaInicio='" + getFechaInicio() + "'" +
             ", fechaFinal='" + getFechaFinal() + "'" +
             ", horasPrevisto=" + getHorasPrevisto() +
-            ", proyecto=" + getProyectoId() +
-            ", contacto=" + getContactoId() +
-            ", tarea=" + getTareaId() +
-            ", tarea=" + getTareaId() +
             "}";
     }
 }

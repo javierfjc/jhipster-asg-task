@@ -33,30 +33,6 @@
                 <dd>
                     <span>{{tarea.horasPrevisto}}</span>
                 </dd>
-                <dt><span jhiTranslate="jhipsterTaskApp.tarea.proyecto">Proyecto</span></dt>
-                <dd>
-                    <div *ngIf="tarea.proyectoId">
-                        <a [routerLink]="['/proyecto', tarea.proyectoId, 'view']">{{tarea.proyectoId}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="jhipsterTaskApp.tarea.contacto">Contacto</span></dt>
-                <dd>
-                    <div *ngIf="tarea.contactoId">
-                        <a [routerLink]="['/contacto', tarea.contactoId, 'view']">{{tarea.contactoId}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="jhipsterTaskApp.tarea.tarea">Tarea</span></dt>
-                <dd>
-                    <div *ngIf="tarea.tareaId">
-                        <a [routerLink]="['/tarea', tarea.tareaId, 'view']">{{tarea.tareaId}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="jhipsterTaskApp.tarea.tarea">Tarea</span></dt>
-                <dd>
-                    <div *ngIf="tarea.tareaId">
-                        <a [routerLink]="['/tarea', tarea.tareaId, 'view']">{{tarea.tareaId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

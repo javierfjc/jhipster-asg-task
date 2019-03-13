@@ -1,7 +1,6 @@
 package io.github.jhipster.application.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -33,10 +32,6 @@ public class Perfil implements Serializable {
 
     @Column(name = "nivel")
     private Integer nivel;
-
-    @ManyToOne
-    @JsonIgnoreProperties("perfils")
-    private Empleado empleado;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -84,19 +79,6 @@ public class Perfil implements Serializable {
 
     public void setNivel(Integer nivel) {
         this.nivel = nivel;
-    }
-
-    public Empleado getEmpleado() {
-        return empleado;
-    }
-
-    public Perfil empleado(Empleado empleado) {
-        this.empleado = empleado;
-        return this;
-    }
-
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -56,32 +56,6 @@ entity Empleado {
 	comision Long
 }
 
-
-// defining multiple OneToMany relationships with comments
-relationship OneToMany {
-	Cliente{contacto} to Contacto,
-	Proyecto{tarea} to Tarea,
-    Contacto{tarea} to Tarea,
-	Empleado{perfil} to Perfil,
-	/**
-	* A relationship
-	*/
-	Departamento{empleado} to Empleado,
-    Tarea{crea} to Empleado,
-    Tarea{asignado} to Empleado,
-    Tarea{valida} to Empleado,
-    Tarea{maestra} to Tarea,
-    Tarea{espera} to Tarea
-}
-
-relationship ManyToOne {
-	Empleado{jefe} to Empleado
-}
-
-// Set pagination options
-paginate Empleado with infinite-scroll
-paginate Tarea with pagination
-
 // Use Data Transfert Objects (DTO)
 dto * with mapstruct
 

@@ -12,8 +12,6 @@ import org.mapstruct.*;
 public interface DepartamentoMapper extends EntityMapper<DepartamentoDTO, Departamento> {
 
 
-    @Mapping(target = "empleados", ignore = true)
-    Departamento toEntity(DepartamentoDTO departamentoDTO);
 
     default Departamento fromId(Long id) {
         if (id == null) {

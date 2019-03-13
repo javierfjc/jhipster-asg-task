@@ -46,26 +46,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="tarea_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="tarea_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="tarea_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="departamento_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="jefe_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="empleado" columnName="antiguedad" columnDataType="datetime"/>

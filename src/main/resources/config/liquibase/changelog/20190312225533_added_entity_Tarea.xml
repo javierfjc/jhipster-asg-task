@@ -50,22 +50,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="proyecto_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="contacto_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="tarea_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="tarea_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="tarea" columnName="fecha_creado" columnDataType="datetime"/>

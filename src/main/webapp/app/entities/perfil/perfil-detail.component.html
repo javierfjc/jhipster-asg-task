@@ -17,12 +17,6 @@
                 <dd>
                     <span>{{perfil.nivel}}</span>
                 </dd>
-                <dt><span jhiTranslate="jhipsterTaskApp.perfil.empleado">Empleado</span></dt>
-                <dd>
-                    <div *ngIf="perfil.empleadoId">
-                        <a [routerLink]="['/empleado', perfil.empleadoId, 'view']">{{perfil.empleadoId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

@@ -3,11 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { JhiAlertService } from 'ng-jhipster';
 import { IContacto } from 'app/shared/model/contacto.model';
 import { ContactoService } from './contacto.service';
-import { ICliente } from 'app/shared/model/cliente.model';
-import { ClienteService } from 'app/entities/cliente';
 
 @Component({
     selector: 'jhi-contacto-update',
@@ -17,27 +14,13 @@ export class ContactoUpdateComponent implements OnInit {
     contacto: IContacto;
     isSaving: boolean;
 
-    clientes: ICliente[];
-
-    constructor(
-        protected jhiAlertService: JhiAlertService,
-        protected contactoService: ContactoService,
-        protected clienteService: ClienteService,
-        protected activatedRoute: ActivatedRoute
-    ) {}
+    constructor(protected contactoService: ContactoService, protected activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ contacto }) => {
             this.contacto = contacto;
         });
-        this.clienteService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<ICliente[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ICliente[]>) => response.body)
-            )
-            .subscribe((res: ICliente[]) => (this.clientes = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {
@@ -64,13 +47,5 @@ export class ContactoUpdateComponent implements OnInit {
 
     protected onSaveError() {
         this.isSaving = false;
-    }
-
-    protected onError(errorMessage: string) {
-        this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackClienteById(index: number, item: ICliente) {
-        return item.id;
     }
 }

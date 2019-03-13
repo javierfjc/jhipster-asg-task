@@ -8,14 +8,10 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Perfil and its DTO PerfilDTO.
  */
-@Mapper(componentModel = "spring", uses = {EmpleadoMapper.class})
+@Mapper(componentModel = "spring", uses = {})
 public interface PerfilMapper extends EntityMapper<PerfilDTO, Perfil> {
 
-    @Mapping(source = "empleado.id", target = "empleadoId")
-    PerfilDTO toDto(Perfil perfil);
 
-    @Mapping(source = "empleadoId", target = "empleado")
-    Perfil toEntity(PerfilDTO perfilDTO);
 
     default Perfil fromId(Long id) {
         if (id == null) {

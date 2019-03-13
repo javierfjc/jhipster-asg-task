@@ -60,34 +60,6 @@
                         [(ngModel)]="tarea.horasPrevisto" />
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.proyecto" for="field_proyecto">Proyecto</label>
-                    <select class="form-control" id="field_proyecto" name="proyecto" [(ngModel)]="tarea.proyectoId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="proyectoOption.id" *ngFor="let proyectoOption of proyectos; trackBy: trackProyectoById">{{proyectoOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.contacto" for="field_contacto">Contacto</label>
-                    <select class="form-control" id="field_contacto" name="contacto" [(ngModel)]="tarea.contactoId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="contactoOption.id" *ngFor="let contactoOption of contactos; trackBy: trackContactoById">{{contactoOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.tarea" for="field_tarea">Tarea</label>
-                    <select class="form-control" id="field_tarea" name="tarea" [(ngModel)]="tarea.tareaId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="tareaOption.id" *ngFor="let tareaOption of tareas; trackBy: trackTareaById">{{tareaOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jhipsterTaskApp.tarea.tarea" for="field_tarea">Tarea</label>
-                    <select class="form-control" id="field_tarea" name="tarea" [(ngModel)]="tarea.tareaId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="tareaOption.id" *ngFor="let tareaOption of tareas; trackBy: trackTareaById">{{tareaOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

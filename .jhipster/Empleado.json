@@ -27,50 +27,12 @@
             "fieldType": "Long"
         }
     ],
-    "relationships": [
-        {
-            "relationshipName": "tarea",
-            "otherEntityName": "tarea",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipName": "tarea",
-            "otherEntityName": "tarea",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipName": "tarea",
-            "otherEntityName": "tarea",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipName": "departamento",
-            "otherEntityName": "departamento",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "perfil",
-            "otherEntityRelationshipName": "empleado",
-            "relationshipName": "perfil"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "empleado",
-            "otherEntityRelationshipName": "empleado",
-            "relationshipName": "jefe",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190312225536",
     "javadoc": "The Employee entity.",
     "entityTableName": "empleado",
     "dto": "mapstruct",
-    "pagination": "infinite-scroll",
+    "pagination": "no",
     "service": "serviceImpl",
     "jpaMetamodelFiltering": false,
     "fluentMethods": true,

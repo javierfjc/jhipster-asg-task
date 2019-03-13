@@ -1,5 +1,4 @@
 package io.github.jhipster.application.service.dto;
-import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -14,10 +13,6 @@ public class DepartamentoDTO implements Serializable {
     @NotNull
     private String descripcion;
 
-    /**
-     * A relationship
-     */
-    @ApiModelProperty(value = "A relationship")
 
     public Long getId() {
         return id;

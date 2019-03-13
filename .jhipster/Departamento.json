@@ -9,15 +9,7 @@
             ]
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "empleado",
-            "otherEntityRelationshipName": "departamento",
-            "javadoc": "A relationship",
-            "relationshipName": "empleado"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190312225534",
     "entityTableName": "departamento",
     "dto": "mapstruct",
