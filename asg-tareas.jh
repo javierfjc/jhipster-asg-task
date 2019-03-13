@@ -56,6 +56,10 @@ entity Empleado {
 	comision Long
 }
 
+relationship ManyToOne {
+  Contacto{cliente} to Cliente
+}
+
 // Use Data Transfert Objects (DTO)
 dto * with mapstruct
 

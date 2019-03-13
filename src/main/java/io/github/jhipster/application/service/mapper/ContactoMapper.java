@@ -8,10 +8,14 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Contacto and its DTO ContactoDTO.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {ClienteMapper.class})
 public interface ContactoMapper extends EntityMapper<ContactoDTO, Contacto> {
 
+    @Mapping(source = "cliente.id", target = "clienteId")
+    ContactoDTO toDto(Contacto contacto);
 
+    @Mapping(source = "clienteId", target = "cliente")
+    Contacto toEntity(ContactoDTO contactoDTO);
 
     default Contacto fromId(Long id) {
         if (id == null) {

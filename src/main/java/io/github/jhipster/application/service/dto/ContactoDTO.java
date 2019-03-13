@@ -18,6 +18,8 @@ public class ContactoDTO implements Serializable {
     private String perfil;
 
 
+    private Long clienteId;
+
     public Long getId() {
         return id;
     }
@@ -58,6 +60,14 @@ public class ContactoDTO implements Serializable {
         this.perfil = perfil;
     }
 
+    public Long getClienteId() {
+        return clienteId;
+    }
+
+    public void setClienteId(Long clienteId) {
+        this.clienteId = clienteId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -87,6 +97,7 @@ public class ContactoDTO implements Serializable {
             ", email='" + getEmail() + "'" +
             ", telefono='" + getTelefono() + "'" +
             ", perfil='" + getPerfil() + "'" +
+            ", cliente=" + getClienteId() +
             "}";
     }
 }

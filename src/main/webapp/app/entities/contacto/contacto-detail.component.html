@@ -21,6 +21,12 @@
                 <dd>
                     <span>{{contacto.perfil}}</span>
                 </dd>
+                <dt><span jhiTranslate="jhipsterTaskApp.contacto.cliente">Cliente</span></dt>
+                <dd>
+                    <div *ngIf="contacto.clienteId">
+                        <a [routerLink]="['/cliente', contacto.clienteId, 'view']">{{contacto.clienteId}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"
